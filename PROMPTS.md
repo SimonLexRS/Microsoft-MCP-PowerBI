@@ -1,7 +1,50 @@
 # Prompts de ejemplo
 
-Prompts listos para copiar en tu agente de IA (Claude Code u otro cliente con
-el kit configurado). Todos asumen Power BI Desktop abierto con un `.pbip`.
+## Prompt de implementación (copiar en Claude o ChatGPT)
+
+Pega este prompt en tu asistente de IA (Claude Code, Claude, ChatGPT u otro
+agente con acceso a terminal) para que instale y configure el kit completo en
+tu equipo desde cero:
+
+```
+Quiero implementar el kit Microsoft-MCP-PowerBI en este equipo Windows para
+construir modelos y dashboards de Power BI con IA. Sigue estos pasos y
+verifica cada uno antes de continuar:
+
+1. Verifica los requisitos: Windows, Power BI Desktop instalado (si falta,
+   indícame el link https://aka.ms/pbidesktop y espera), y Node.js 20+
+   (`node --version`).
+2. Clona el kit: git clone https://github.com/SimonLexRS/Microsoft-MCP-PowerBI.git
+   y entra a la carpeta.
+3. Instala los CLIs de autoría:
+   npm install -g @microsoft/powerbi-report-authoring-cli @microsoft/powerbi-desktop-bridge-cli
+   y verifica que `powerbi-report-author --version` y `powerbi-desktop --version` respondan.
+4. Configura el servidor MCP según mi cliente de IA (el repo trae .mcp.json
+   para Claude Code y config/claude_desktop_config.json para Claude Desktop;
+   para otros clientes usa: comando npx, args
+   ["-y","@microsoft/powerbi-modeling-mcp@latest","--start","--skipconfirmation"],
+   transporte stdio). Dime si necesito reiniciar la sesión del cliente.
+5. Si mi cliente soporta skills, instala el skill del repo copiando la carpeta
+   skills/powerbi-mcp a mi directorio de skills (~/.claude/skills/ en Claude Code).
+6. Pídeme abrir Power BI Desktop con un archivo nuevo, guardarlo como proyecto
+   .pbip (si no aparece la opción, actívala en Opciones > Funciones de vista
+   previa) y dejarlo abierto.
+7. Prueba de humo: lista las instancias locales de Power BI Desktop con el MCP
+   y conéctate; después corre `powerbi-desktop status` y muéstrame el PID.
+8. Cuando todo funcione, dame un resumen de qué quedó instalado y los prompts
+   de ejemplo del archivo PROMPTS.md del repo para empezar a trabajar.
+
+Lee INSTALL.md y MANUAL.md del repo ante cualquier duda o error — el MANUAL
+tiene la tabla de errores conocidos con sus fixes.
+```
+
+> En asistentes sin acceso a terminal (ChatGPT web, Claude web), el asistente
+> te dictará los comandos para que los ejecutes tú y le pegues la salida.
+
+---
+
+Los siguientes prompts asumen el kit ya configurado y Power BI Desktop
+abierto con un `.pbip`.
 
 ## Conexión y diagnóstico
 

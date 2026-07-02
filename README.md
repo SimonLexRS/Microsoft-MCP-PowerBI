@@ -1,6 +1,6 @@
 # Microsoft MCP PowerBI — Kit de integración para agentes de IA
 
-[![Visitas](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSimonLexRS%2FMicrosoft-MCP-PowerBI&title=visitas&edge_flat=false)](https://github.com/SimonLexRS/Microsoft-MCP-PowerBI)
+[![Visitas](https://hits.sh/github.com/SimonLexRS/Microsoft-MCP-PowerBI.svg?label=visitas&color=blue)](https://github.com/SimonLexRS/Microsoft-MCP-PowerBI)
 [![Descargas npm — MCP](https://img.shields.io/npm/dm/%40microsoft%2Fpowerbi-modeling-mcp?label=descargas%20powerbi-modeling-mcp)](https://www.npmjs.com/package/@microsoft/powerbi-modeling-mcp)
 [![Descargas npm — Authoring CLI](https://img.shields.io/npm/dm/%40microsoft%2Fpowerbi-report-authoring-cli?label=descargas%20report-authoring-cli)](https://www.npmjs.com/package/@microsoft/powerbi-report-authoring-cli)
 [![Descargas npm — Desktop Bridge](https://img.shields.io/npm/dm/%40microsoft%2Fpowerbi-desktop-bridge-cli?label=descargas%20desktop-bridge-cli)](https://www.npmjs.com/package/@microsoft/powerbi-desktop-bridge-cli)
@@ -67,6 +67,26 @@ manuales para replicarlo en cualquier equipo):
 └──────────────────────────────┘
 ```
 
+## Galería — dashboards construidos con este kit
+
+Dashboard multipágina generado 100% por un agente de IA con este flujo
+(dataset de ejemplo: Mundial de fútbol 2026), verificado con los propios
+screenshots del kit:
+
+| Resumen con KPIs, tabla y slicer | Gráficos de barras y columnas |
+|---|---|
+| ![Resumen](docs/img/resumen-torneo.png) | ![Rendimiento](docs/img/rendimiento-equipo.png) |
+
+| Ranking con slicer y tabla de stats | Serie temporal y análisis |
+|---|---|
+| ![Goleadores](docs/img/goleadores.png) | ![Análisis](docs/img/analisis-torneo.png) |
+
+<details>
+<summary>Ver página de detalle (tablas de eventos y alineaciones)</summary>
+
+![Detalle](docs/img/detalle-partido.png)
+</details>
+
 ## Inicio rápido
 
 ```bash
@@ -82,10 +102,32 @@ claude   # el .mcp.json activa el servidor powerbi-modeling automáticamente
 #    "Lista las instancias locales de Power BI Desktop y conéctate"
 ```
 
+> ⚡ **Implementación asistida por IA:** [PROMPTS.md](PROMPTS.md#prompt-de-implementación-copiar-en-claude-o-chatgpt)
+> incluye un prompt listo para pegar en Claude o ChatGPT que instala y
+> configura todo el kit por ti, paso a paso y con verificación.
+
 Guía de instalación completa por cliente (Claude Code, Claude Desktop,
 VS Code Copilot, Cursor, cliente genérico): **[INSTALL.md](INSTALL.md)**
 Manual de uso completo con el flujo validado y errores conocidos: **[MANUAL.md](MANUAL.md)**
 Prompts de ejemplo listos para copiar: **[PROMPTS.md](PROMPTS.md)**
+
+## Skill para Claude
+
+El kit incluye un **skill** ([`skills/powerbi-mcp/SKILL.md`](skills/powerbi-mcp/SKILL.md))
+que le enseña a Claude el flujo completo y se activa solo cuando pides cosas
+como *"carga estos datos en Power BI"* o *"crea un dashboard"*. Para instalarlo:
+
+```bash
+# Claude Code — skill personal (disponible en todos tus proyectos)
+mkdir -p ~/.claude/skills/powerbi-mcp
+cp skills/powerbi-mcp/SKILL.md ~/.claude/skills/powerbi-mcp/
+
+# o como skill del proyecto (se versiona con tu repo)
+mkdir -p .claude/skills/powerbi-mcp
+cp skills/powerbi-mcp/SKILL.md .claude/skills/powerbi-mcp/
+```
+
+Invocación explícita: `/powerbi-mcp` en Claude Code.
 
 ## Qué aporta este kit sobre los paquetes crudos
 

@@ -49,6 +49,17 @@ Este repo ya incluye el [`.mcp.json`](.mcp.json) en la raíz:
 > **Cambios en `.mcp.json` requieren reiniciar la sesión** de Claude Code
 > (los servidores MCP de proyecto se cargan al inicio, no hay hot-reload).
 
+**Skill (recomendado):** instala el skill del kit para que Claude conozca el
+flujo completo sin explicárselo en cada sesión:
+
+```bash
+mkdir -p ~/.claude/skills/powerbi-mcp
+cp skills/powerbi-mcp/SKILL.md ~/.claude/skills/powerbi-mcp/
+```
+
+Se activa automáticamente con pedidos como "carga estos datos en Power BI" o
+explícitamente con `/powerbi-mcp`.
+
 ## Claude Desktop (app de escritorio)
 
 Editar el archivo de configuración (`%APPDATA%\Claude\claude_desktop_config.json`
