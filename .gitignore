@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+screenshots/
+*.pbix
+*.pbip
+*.Report/
+*.SemanticModel/
+.claude/
