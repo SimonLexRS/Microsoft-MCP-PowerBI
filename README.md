@@ -159,3 +159,22 @@ Invocación explícita: `/powerbi-mcp` en Claude Code.
 
 Los paquetes npm integrados son propiedad de Microsoft. Este kit se
 distribuye bajo licencia [MIT](LICENSE).
+
+---
+
+## 📊 Estadísticas de clones (últimos 14 días)
+
+> Datos de [GitHub Traffic Insights](https://github.com/SimonLexRS/Microsoft-MCP-PowerBI/graphs/traffic) · Actualizado: 03/07/2026
+>
+> ```mermaid
+> xychart-beta
+>     title "Git Clones — 19 jun al 02 jul 2026"
+>     x-axis ["19/06","20/06","21/06","22/06","23/06","24/06","25/06","26/06","27/06","28/06","29/06","30/06","01/07","02/07"]
+>     y-axis "Clones" 0 --> 14
+>     line [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12]
+> ```
+>
+> | Métrica | Valor (últimos 14 días) |
+> |---|---|
+> | 🔁 Clones totales | **12** |
+> | 👤 Clonadores únicos | **10** |
