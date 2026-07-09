@@ -1,6 +1,6 @@
 # Microsoft MCP PowerBI — Kit de integración para agentes de IA
 
-[![Visitas](https://hits.sh/github.com/SimonLexRS/Microsoft-MCP-PowerBI.svg?label=visitas&color=blue)](https://github.com/SimonLexRS/Microsoft-MCP-PowerBI)
+[![Visitas](https://visitor-badge.laobi.icu/badge?page_id=SimonLexRS.Microsoft-MCP-PowerBI&left_color=blue&right_color=brightgreen&left_text=visitas)](https://github.com/SimonLexRS/Microsoft-MCP-PowerBI)
 [![Descargas npm — MCP](https://img.shields.io/npm/dm/%40microsoft%2Fpowerbi-modeling-mcp?label=descargas%20powerbi-modeling-mcp)](https://www.npmjs.com/package/@microsoft/powerbi-modeling-mcp)
 [![Descargas npm — Authoring CLI](https://img.shields.io/npm/dm/%40microsoft%2Fpowerbi-report-authoring-cli?label=descargas%20report-authoring-cli)](https://www.npmjs.com/package/@microsoft/powerbi-report-authoring-cli)
 [![Descargas npm — Desktop Bridge](https://img.shields.io/npm/dm/%40microsoft%2Fpowerbi-desktop-bridge-cli?label=descargas%20desktop-bridge-cli)](https://www.npmjs.com/package/@microsoft/powerbi-desktop-bridge-cli)
@@ -11,6 +11,8 @@ Kit completo para que un agente de IA (Claude, Copilot, Cursor u otro cliente
 MCP) construya **modelos semánticos y dashboards de Power BI de punta a punta**
 contra una instancia local de Power BI Desktop — incluyendo **edición de
 visuales en vivo, sin cerrar el archivo**.
+
+> ⚠️ **Requisito indispensable: modo Proyecto de Power BI (.pbip).** Todo el flujo de dashboards de este kit (escritura de visuales, `validate` y `reload` en vivo) depende de que el archivo esté guardado como **Power BI project files (*.pbip)** — nunca como `.pbix` clásico. Guárdalo así antes de conectar el agente: **Archivo > Guardar como > Power BI project files (*.pbip)**. Solo el modo proyecto genera las carpetas `*.Report/` (PBIR) y `*.SemanticModel/` (TMDL) que el agente necesita leer y escribir; con un `.pbix` normal, ninguna herramienta de dashboard de este kit puede operar.
 
 Este kit integra y documenta tres herramientas oficiales de Microsoft
 (el mérito de los paquetes es de Microsoft; este repo aporta la configuración,
@@ -98,7 +100,9 @@ git clone https://github.com/SimonLexRS/Microsoft-MCP-PowerBI.git
 cd Microsoft-MCP-PowerBI
 claude   # el .mcp.json activa el servidor powerbi-modeling automáticamente
 
-# 3. Abrir Power BI Desktop con un proyecto .pbip y pedirle al agente:
+# 3. IMPORTANTE: usar modo Proyecto (.pbip), no .pbix
+#    En Desktop: Archivo > Guardar como > Power BI project files (*.pbip)
+# 4. Con el .pbip abierto en Desktop, pedirle al agente:
 #    "Lista las instancias locales de Power BI Desktop y conéctate"
 ```
 
@@ -152,6 +156,7 @@ Invocación explícita: `/powerbi-mcp` en Claude Code.
 - [Node.js 20+](https://nodejs.org) (el MCP corre vía `npx`)
 - Python 3.10+ (opcional, solo para `scripts/build_visuals.py`)
 - Sin credenciales cloud: todo corre local contra Power BI Desktop
+- **Reporte guardado en modo Proyecto de Power BI (`*.pbip`), no `.pbix`** — obligatorio para el flujo de dashboards (PBIR + reload en vivo)
 
 ---
 
